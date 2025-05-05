@@ -7,311 +7,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<style>
-    :root {
-        --primary-color: #362415;
-        --secondary-color: #8B5E3C;
-        --accent-color: #FFD700;
-        --bg-color: #FFF5EB;
-        --text-color: #362415;
-        --card-bg: rgba(255, 255, 255, 0.9);
-        --glass-effect: rgba(255, 255, 255, 0.15);
-    }
-
-
-    body {
-        background-color: var(--bg-color);
-        color: var(--text-color);
-        font-family: 'Poppins', sans-serif;
-        overflow-x: hidden;
-    }
-
-    .navbar {
-        background: rgba(var(--primary-color-rgb), 0.9) !important;
-        backdrop-filter: blur(10px);
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        padding: 1rem 0;
-    }
-
-    .navbar-brand {
-        font-weight: 700;
-        font-size: 1.5rem;
-        letter-spacing: 1px;
-    }
-
-    .nav-link {
-        position: relative;
-        margin: 0 1rem;
-        transition: all 0.3s ease;
-    }
-
-    .nav-link::after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: 0;
-        left: 0;
-        background-color: var(--accent-color);
-        transition: width 0.3s ease;
-    }
-
-    .nav-link:hover::after {
-        width: 100%;
-    }
-
-    .mt {
-        margin-top: 2px;
-    }
-
-    .carouselll {
-        border-radius: 20px;
-        overflow: hidden;
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        margin-top: 6rem;
-    }
-
-    .carousel-item img {
-        height: 600px;
-        object-fit: cover;
-        filter: brightness(0.9);
-    }
-
-    .menu-card {
-        background: var(--card-bg);
-        border-radius: 20px;
-        overflow: hidden;
-        transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
-                    box-shadow 0.4s ease;
-        border: none;
-        position: relative;
-    }
-
-    .menu-card:hover {
-        transform: translateY(-10px) scale(1.02);
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-    }
-
-    .card-img-top {
-        height: 280px;
-        object-fit: cover;
-        transition: transform 0.3s ease;
-    }
-
-    .card-body {
-      height: 36px;
-      width: 100%;
-    }
-
-    .menu-card:hover .card-img-top {
-        transform: scale(1.05);
-    }
-
-    .price {
-        background: var(--accent-color);
-        color: var(--primary-color);
-        padding: 0.5rem 1.5rem;
-        border-radius: 30px;
-        font-weight: 700;
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .filter-btn {
-        border: 2px solid var(--secondary-color);
-        color: var(--secondary-color);
-        border-radius: 30px;
-        padding: 0.5rem 1.5rem;
-        transition: all 0.3s ease;
-        margin: 0 0.5rem;
-        background: transparent;
-    }
-
-    .filter-btn.active,
-    .filter-btn:hover {
-        background: var(--secondary-color);
-        color: var(--bg-color);
-        transform: translateY(-2px);
-    }
-
-    .theme-toggle {
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
-        background: var(--glass-effect);
-        backdrop-filter: blur(5px);
-        border: 1px solid var(--secondary-color);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s ease;
-    }
-
-    .theme-toggle:hover {
-        transform: rotate(180deg) scale(1.1);
-    }
-
-    .section-title {
-        font-size: 2.5rem;
-        font-weight: 700;
-        text-align: center;
-        margin: 4rem 0;
-        position: relative;
-    }
-
-    .section-title::after {
-        content: '';
-        width: 80px;
-        height: 4px;
-        background: var(--accent-color);
-        position: absolute;
-        bottom: -15px;
-        left: 50%;
-        transform: translateX(-50%);
-        border-radius: 2px;
-    }
-
-    @media (max-width: 768px) {
-        .carousel-item img {
-            height: 300px;
-        }
-        
-        .menu-card {
-            margin: 0 1rem;
-        }
-        
-        .section-title {
-            font-size: 2rem;
-        }
-    }
-
-    /* Floating animation */
-    @keyframes float {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-20px); }
-        100% { transform: translateY(0px); }
-    }
-
-    .floating {
-        animation: float 3s ease-in-out infinite;
-    }
-
-    .navbar-toggler-icon {
-         color: #000;
-        }
-
-        .menu-card {
-            margin-bottom: 1.5rem;
-        }
-
-        .card-img-top {
-            height: 220px; /* Reduced height for better mobile view */
-        }
-
-        @media (min-width: 768px) {
-            .card-img-top {
-                height: 280px; /* Original height for larger screens */
-            }
-        }
-
-        .loader-wrapper {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--bg-color);
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.5s ease;
-        }
-
-        .loader {
-            border: 4px solid var(--glass-effect);
-            border-top: 4px solid var(--accent-color);
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        /* Enhanced mobile menu */
-        @media (max-width: 768px) {
-            .navbar-nav {
-                background: var(--card-bg);
-                padding: 1rem;
-                border-radius: 15px;
-                margin-top: 1rem;
-            }
-
-            .nav-link {
-                margin: 0.5rem 0;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-                margin: 3rem 0;
-            }
-        }
-
-    ::-webkit-scrollbar { width: 15px; }
-    ::-webkit-scrollbar-thumb { background-color: var(--secondary-color); }
-    ::-webkit-scrollbar-track { background-color: var(--bg-color); width: 30px; }
-
-    *::selection {
-        color: var(--text-color);
-        background-color: var(--bg-color);
-    }
-
-    input, select, textarea {
-        font-size: 16px !important;
-    }   
-
-    .copyright-bar {
-        margin-top: auto;
-        width: 100%;
-        max-width: 500px;
-        background: rgba(255, 255, 255, 0.9);
-        color: var(--text-color);
-        text-align: center;
-        padding: 8px 15px;
-        font-size: 0.8rem;
-        border-radius: 14px;
-        margin-top: 20px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        border: 1px solid rgba(255, 107, 0, 0.1);
-    }
-    
-    @media (max-width: 768px) {
-        .copyright-bar {
-            font-size: 0.75rem;
-            padding: 6px 12px;
-            margin-top: 15px;
-        }
-    }
-    
-    @media (max-width: 480px) {
-        .copyright-bar {
-            font-size: 0.7rem;
-            padding: 6px 10px;
-            margin-top: 10px;
-        }
-    }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -340,16 +36,16 @@
         <div id="carouselExample" class="carousel slide carouselll floating" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="images/ice-latte.jpg" class="d-block w-100" alt="Coffee Shop">
+                <img src="images/s1.jpg" class="d-block w-100" alt="Coffee Shop">
               </div>
               <div class="carousel-item">
-                <img src="images/latte.webp" class="d-block w-100" alt="Coffee Beans">
+                <img src="images/s3.jpg" class="d-block w-100" alt="Coffee Beans">
               </div>
               <div class="carousel-item">
-                <img src="images/tea.jpg" class="d-block w-100" alt="Coffee Beans">
+                <img src="images/s4.jpg" class="d-block w-100" alt="Coffee Beans">
               </div>
               <div class="carousel-item">
-                <img src="images/americano.jpg" class="d-block w-100" alt="Coffee Beans">
+                <img src="images/s5.jpg" class="d-block w-100" alt="Coffee Beans">
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -452,7 +148,7 @@
           <div class="card-body">
               <div class="d-flex justify-content-between align-items-start">
             <h5 class="card-title">Tea</h5>
-            <p class="price">1000 IQD</p>
+            <p class="price">500 IQD</p>
           </div>
           </div>
         </div>
@@ -507,11 +203,55 @@
         </div>
       </div>
     </div>
+    <div class="col-md-4 mb-4" data-category="coffee">
+      <div class="card h-100 menu-card">
+        <img src="images/caramel-latte.jpg" class="card-img-top" alt="Espresso" >
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start">
+          <h5 class="card-title">Iced Caramel Latte</h5>
+          <p class="price">6000 IQD</p>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4" data-category="coffee">
+      <div class="card h-100 menu-card">
+        <img src="images/hazelnut-latte.webp" class="card-img-top" alt="Espresso" >
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start">
+          <h5 class="card-title">Iced Hazelnut Latte</h5>
+          <p class="price">7000 IQD</p>
+        </div>
+        </div>
+      </div>
+    </div>
 </section>
 
 <section id="ColdDrink" class="container py-5">
   <h2 class="section-title">Cold Drink</h2>
   <div class="row g-4 mt">
+    <div class="col-md-4 mb-4" data-category="coffee">
+        <div class="card h-100 menu-card">
+          <img src="images/Strawberry-Mojito.jpg" class="card-img-top" alt="Espresso">
+          <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start">
+            <h5 class="card-title">Mojito StrawBerry</h5>
+            <p class="price">5000 IQD</p>
+          </div>
+          </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4" data-category="coffee">
+        <div class="card h-100 menu-card">
+          <img src="images/Blueberry-mojito.jpg" class="card-img-top" alt="Espresso">
+          <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start">
+            <h5 class="card-title">Mojito BlueBerry</h5>
+            <p class="price">5000 IQD</p>
+          </div>
+          </div>
+        </div>
+    </div>
     <div class="col-md-4 mb-4" data-category="coffee">
         <div class="card h-100 menu-card">
           <img src="images/energy-drink.webp" class="card-img-top" alt="Espresso">
@@ -525,11 +265,10 @@
     </div>
     <div class="col-md-4 mb-4" data-category="coffee">
         <div class="card h-100 menu-card">
-          <img src="images/water.jpg" class="card-img-top" alt="Espresso" >
+          <img src="images/water.png" class="card-img-top" alt="Espresso" >
           <div class="card-body">
               <div class="d-flex justify-content-between align-items-start">
             <h5 class="card-title">Water</h5>
-            <p class="price">250 IQD</p>
           </div>
           </div>
         </div>
@@ -539,69 +278,11 @@
 
 
 <footer class="copyright-bar">
-  <p data-translate="copyright">Made By artech</p>
+  <p data-translate="copyright">Made By Astera</p>
 </footer>
 
-<!-- Bootstrap JS and Popper.js -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Custom JS -->
-<!-- <script src="script.js"></script> -->
-<script>
-    // Initialize Bootstrap Carousel
-const carousel = new bootstrap.Carousel('#carouselExample', {
-    interval: 3000, // Auto-rotate every 3 seconds
-    wrap: true
-  });
-  
-  // Smooth Scroll for Navbar Links (optional)
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
-      });
-    });
-  });
-  // Menu Filtering
-document.querySelectorAll('.filter-btn').forEach(button => {
-    button.addEventListener('click', () => {
-      // Remove active class from all buttons
-      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-      
-      const filter = button.dataset.filter;
-      const cards = document.querySelectorAll('[data-category]');
-      
-      cards.forEach(card => {
-        if (filter === 'all' || card.dataset.category === filter) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
-  });
-  // Scroll Animation Observer
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-  
-  // Add to elements you want to animate
-  document.querySelectorAll('#hotCoffee, #about, #contact').forEach(section => {
-    section.classList.add('scroll-animate');
-    observer.observe(section);
-  });
-
-// Hide loader when page loads
-window.addEventListener('load', () => {
-  document.querySelector('.loader-wrapper').classList.add('hidden');
-});
-
-</script>
+<script src="js.js"></script>
 <div class="loader-wrapper">
   <div class="loader"></div>
 </div>
